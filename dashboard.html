@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeVerse - Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .login-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .login-container img {
+            width: 100px;
+            margin-bottom: 1rem;
+        }
+        .login-container h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #1c2526;
+            margin-bottom: 0.5rem;
+        }
+        .login-container p {
+            color: #606770;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-control {
+            border-radius: 4px;
+            border: 1px solid #dadcde;
+            padding: 0.75rem;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            transition: border-color 0.2s ease;
+        }
+        .form-control:focus {
+            border-color: #1877f2;
+            box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.2);
+            outline: none;
+        }
+        .btn-login {
+            background-color: #1877f2;
+            border: none;
+            border-radius: 6px;
+            padding: 0.75rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: white;
+            width: 100%;
+            transition: background-color 0.2s ease;
+        }
+        .btn-login:hover {
+            background-color: #165ece;
+        }
+        .toggle-link {
+            color: #1877f2;
+            font-size: 0.875rem;
+            text-decoration: none;
+            margin: 1rem 0;
+            display: inline-block;
+        }
+        .toggle-link:hover {
+            text-decoration: underline;
+        }
+        .forgot-link {
+            color: #1877f2;
+            font-size: 0.875rem;
+            text-decoration: none;
+            display: block;
+            margin-top: 1rem;
+        }
+        .forgot-link:hover {
+            text-decoration: underline;
+        }
+        #nameField {
+            display: none;
+        }
+        .user-card {
+            display: none;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        .profile-picture-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        .user-card img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+        }
+        .camera-icon {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-color: #1877f2;
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .camera-icon:hover {
+            background-color: #165ece;
+        }
+        .camera-icon i {
+            font-size: 1.2rem;
+        }
+        .user-card h5 {
+            font-weight: 500;
+            color: #333;
+        }
+        .user-card p {
+            color: #6c757d;
+            margin-bottom: 0.5rem;
+        }
+        .btn-logout {
+            background-color: #dc3545;
+            border: none;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        .btn-logout:hover {
+            background-color: #c82333;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            .login-container, .user-card {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Dashboard Content -->
+    <div class="container">
+        <!-- Fake Google Sign-In Form -->
+        <div class="login-container" id="loginForm">
+            <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google Logo">
+            <h2 id="formTitle">Sign in</h2>
+            <p id="formSubtitle">Use your Google Account</p>
+            <input type="text" id="nameInput" class="form-control" placeholder="Full Name">
+            <input type="email" id="emailInput" class="form-control" placeholder="Email or phone">
+            <input type="password" id="passwordInput" class="form-control" placeholder="Password">
+            <a href="#" class="forgot-link" id="forgotLink">Forgot email?</a>
+            <button class="btn-login" id="actionButton" onclick="handleAction()">Next</button>
+            <a href="#" class="toggle-link" id="toggleLink" onclick="toggleFormMode()">Create account</a>
+        </div>
+
+        <!-- User Details Card -->
+        <div class="user-card" id="userDetails">
+            <div class="profile-picture-container">
+                <img id="userImage" src="https://via.placeholder.com/120" alt="Profile Picture">
+                <div class="camera-icon" onclick="document.getElementById('profilePictureInput').click()">
+                    <i class="fas fa-camera"></i>
+                </div>
+            </div>
+            <input type="file" id="profilePictureInput" style="display: none;" accept="image/*" onchange="uploadProfilePicture()">
+            <h5 id="userName">User Name</h5>
+            <p><strong>Email:</strong> <span id="userEmail">user@example.com</span></p>
+            <button class="btn-logout mt-2" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let isLoginMode = true;
+
+        // Toggle between Sign-Up and Login modes
+        function toggleFormMode() {
+            isLoginMode = !isLoginMode;
+            const formTitle = document.getElementById('formTitle');
+            const formSubtitle = document.getElementById('formSubtitle');
+            const nameField = document.getElementById('nameInput');
+            const actionButton = document.getElementById('actionButton');
+            const toggleLink = document.getElementById('toggleLink');
+            const forgotLink = document.getElementById('forgotLink');
+
+            if (isLoginMode) {
+                formTitle.textContent = 'Sign in';
+                formSubtitle.textContent = 'Use your Google Account';
+                nameField.style.display = 'none';
+                actionButton.textContent = 'Next';
+                toggleLink.textContent = 'Create account';
+                forgotLink.style.display = 'block';
+            } else {
+                formTitle.textContent = 'Sign up';
+                formSubtitle.textContent = 'Create a Google Account';
+                nameField.style.display = 'block';
+                actionButton.textContent = 'Sign Up';
+                toggleLink.textContent = 'Already have an account? Sign in';
+                forgotLink.style.display = 'none';
+            }
+
+            // Clear form inputs
+            document.getElementById('nameInput').value = '';
+            document.getElementById('emailInput').value = '';
+            document.getElementById('passwordInput').value = '';
+        }
+
+        // Handle Sign-Up or Login action
+        function handleAction() {
+            const email = document.getElementById('emailInput').value.trim();
+            const password = document.getElementById('passwordInput').value.trim();
+
+            if (!email || !password) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            if (isLoginMode) {
+                // Login mode
+                const users = JSON.parse(localStorage.getItem('users')) || {};
+                if (users[email] && users[email].password === password) {
+                    const userData = {
+                        name: users[email].name || 'User',
+                        email: email,
+                        picture: users[email].picture || 'https://via.placeholder.com/120'
+                    };
+                    displayUserDetails(userData);
+                    localStorage.setItem('userLoggedIn', 'true');
+                    localStorage.setItem('userData', JSON.stringify(userData));
+                    document.getElementById('loginForm').style.display = 'none';
+                    document.getElementById('userDetails').style.display = 'block';
+                    // Redirect to homepage after a short delay
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1000);
+                } else {
+                    alert('Incorrect email or password. Please sign up if you don\'t have an account.');
+                }
+            } else {
+                // Sign-Up mode
+                const name = document.getElementById('nameInput').value.trim() || 'User';
+                const users = JSON.parse(localStorage.getItem('users')) || {};
+
+                if (users[email]) {
+                    alert('This email is already registered. Please log in instead.');
+                    return;
+                }
+
+                // Store new user
+                users[email] = { password: password, name: name, picture: 'https://via.placeholder.com/120' };
+                localStorage.setItem('users', JSON.stringify(users));
+
+                const userData = {
+                    name: name,
+                    email: email,
+                    picture: 'https://via.placeholder.com/120'
+                };
+                displayUserDetails(userData);
+                localStorage.setItem('userLoggedIn', 'true');
+                localStorage.setItem('userData', JSON.stringify(userData));
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('userDetails').style.display = 'block';
+                // Redirect to homepage after a short delay
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1000);
+            }
+        }
+
+        // Handle profile picture upload
+        function uploadProfilePicture() {
+            const fileInput = document.getElementById('profilePictureInput');
+            const file = fileInput.files[0];
+            if (!file) {
+                alert('Please select an image file.');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const imageDataUrl = e.target.result;
+                const userData = JSON.parse(localStorage.getItem('userData'));
+                const users = JSON.parse(localStorage.getItem('users'));
+
+                // Update userData and users with the new picture
+                userData.picture = imageDataUrl;
+                users[userData.email].picture = imageDataUrl;
+
+                // Save updates to localStorage
+                localStorage.setItem('userData', JSON.stringify(userData));
+                localStorage.setItem('users', JSON.stringify(users));
+
+                // Update the displayed image
+                document.getElementById('userImage').src = imageDataUrl;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Display user details on the dashboard
+        function displayUserDetails(data) {
+            document.getElementById('userName').textContent = data.name || 'User';
+            document.getElementById('userEmail').textContent = data.email || 'user@example.com';
+            document.getElementById('userImage').src = data.picture || 'https://via.placeholder.com/120';
+        }
+
+        // Logout function
+        function logout() {
+            localStorage.removeItem('userLoggedIn');
+            localStorage.removeItem('userData');
+            document.getElementById('userDetails').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('nameInput').value = '';
+            document.getElementById('emailInput').value = '';
+            document.getElementById('passwordInput').value = '';
+            document.getElementById('profilePictureInput').value = '';
+        }
+
+        // Check if user is already logged in on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const userLoggedIn = localStorage.getItem('userLoggedIn');
+            if (userLoggedIn === 'true') {
+                const userData = JSON.parse(localStorage.getItem('userData'));
+                displayUserDetails(userData);
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('userDetails').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

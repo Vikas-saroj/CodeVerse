@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Course Content</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f3f6f9;
+    }
+    h1 {
+      text-align: center;
+      color: #026fe0;
+    }
+    #course-video-container {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    iframe {
+      width: 100%;
+      max-width: 800px;
+      height: 450px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+<h1 id="course-title">Course</h1>
+
+<div id="course-video-container">
+  <!-- Videos will appear here -->
+</div>
+
+<script>
+const videos = {
+  "front-end-development-css": [
+    "https://www.youtube.com/playlist?list=PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3wE"
+  ],
+  "python-programming": [
+    "https://www.youtube.com/embed/videoseries?list=PLGjplNEQ1it8-0CmoljS5yeV-GlKSUEt0"
+  ],
+  "Microsoft Azure Essentials": [
+    "https://www.youtube.com/embed/videoseries?list=PLVHgQku8Z936K1rtxEJaBgrWolp282ayK"
+  ],
+  "statistics-for-data-science": [
+    "https://www.youtube.com/embed/LZzq1zSL1bs"
+  ]
+};
+
+// List of paid courses
+const paidCourses = [
+  
+  "front-end-development-css",
+  "python-programming",
+  "Microsoft Azure Essentials",
+  "statistics-for-data-science"
+];
+
+const params = new URLSearchParams(window.location.search);
+const courseId = params.get("course");
+
+document.getElementById("course-title").innerText = courseId?.replace(/-/g, " ").toUpperCase() || "COURSE";
+
+// Check if course is paid
+if (paidCourses.includes(courseId)) {
+  const isPurchased = localStorage.getItem(`${courseId.replace(/-/g, " ")}_purchased`);
+  if (isPurchased !== "true") {
+    alert("You need to purchase this course to view its content.");
+    window.location.href = "courses.html";
+  }
+}
+
+// Load videos
+const courseVideos = videos[courseId];
+
+if (courseVideos && courseVideos.length > 0) {
+  const container = document.getElementById("course-video-container");
+  courseVideos.forEach(url => {
+    const iframe = document.createElement("iframe");
+    iframe.src = url;
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    iframe.allowFullscreen = true;
+    container.appendChild(iframe);
+  });
+} else {
+  document.getElementById("course-video-container").innerHTML = "<p>No videos available yet.</p>";
+}
+</script>
+
+</body>
+</html>
