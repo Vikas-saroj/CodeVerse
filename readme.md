@@ -17,27 +17,6 @@
 
 ---
 
-## 📁 Project Structure
-   CodeVerse/ \
-   ├── index.html \
-   ├── css/ \
-   │ └── styles.css \
-   ├── js/ \
-   │ └── script.js \
-   ├── images/ \
-   ├── courses/ \
-   │ ├── html.html \
-   │ ├── javascript.html \
-   │ └── python.html \
-   ├── login/ \
-   │ ├── login.html \
-   │ └── signup.html \
-   ├── dashboard/ \
-   │ └── user-dashboard.html \
-   └── README.md \
-
----
-
 ## 🛠️ Tech Stack
 
 - **Frontend**: HTML5, CSS3, JavaScript
