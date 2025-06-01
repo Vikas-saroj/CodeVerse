@@ -18,23 +18,23 @@
 ---
 
 ## 📁 Project Structure
-   CodeVerse/\n
-   ├── index.html\n
-   ├── css/\n
-   │ └── styles.css\n
-   ├── js/\n
-   │ └── script.js\n
-   ├── images/\n
-   ├── courses/\n
-   │ ├── html.html\n
-   │ ├── javascript.html\n
-   │ └── python.html\n
-   ├── login/\n
-   │ ├── login.html\n
-   │ └── signup.html\n
-   ├── dashboard/\n
-   │ └── user-dashboard.html\n
-   └── README.md\n
+   CodeVerse/ \
+   ├── index.html \
+   ├── css/ \
+   │ └── styles.css \
+   ├── js/ \
+   │ └── script.js \
+   ├── images/ \
+   ├── courses/ \
+   │ ├── html.html \
+   │ ├── javascript.html \
+   │ └── python.html \
+   ├── login/ \
+   │ ├── login.html \
+   │ └── signup.html \
+   ├── dashboard/ \
+   │ └── user-dashboard.html \
+   └── README.md \
 
 ---
 
