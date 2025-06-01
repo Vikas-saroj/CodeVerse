@@ -1,60 +1,110 @@
-# E-Learning Website using HTML5, CSS3, Bootstrap5 and JavaScript 
+# 🌐 CodeVerse
 
-![E-Learning Website](preview.png)
+**CodeVerse** is a modern and user-friendly e-learning platform tailored for computer science students. It offers structured courses, study notes, video tutorials, and assessments on core programming and web technologies.
 
-The project involves the creation of an e-learning website using HTML, CSS, Bootstrap 5, and JavaScript. The website aims to provide a user-friendly and responsive platform for learners to access educational content. 
+![CodeVerse Banner](priview.png) 
 
+---
 
-## Introduction
+## 🚀 Features
 
-Secret Coder is an e-learning website designed to provide a user-friendly and responsive platform for learners to access educational content. The project incorporates HTML, CSS, Bootstrap 5, and JavaScript to create an interactive and visually appealing learning experience.
+- 📚 **Structured Courses**: Learn HTML, JavaScript, Python, and C++ with organized modules.
+- 📝 **Study Notes**: Quick-reference notes for all supported subjects.
+- 🎥 **Video Tutorials**: Embedded video lessons for visual learners.
+- 🔐 **User Authentication**: Sign up and login functionality with secure password handling.
+- 🧠 **Quizzes & Assessments** *(Planned)*: Test your knowledge with interactive quizzes.
+- 🧾 **Admin Panel** *(Planned)*: For uploading content and managing courses.
 
-## Features
+---
 
-- Responsive design using Bootstrap 5.
-- Structured course catalog with detailed descriptions.
-- Interactive lessons.
-- User can register and login.
-- User authentication for personalized learning experiences.
-- Instructor application form.
-- User can also contact us.
+## 📁 Project Structure
+   CodeVerse/
+   ├── index.html
+   ├── css/
+   │ └── styles.css
+   ├── js/
+   │ └── script.js
+   ├── images/
+   ├── courses/
+   │ ├── html.html
+   │ ├── javascript.html
+   │ └── python.html
+   ├── login/
+   │ ├── login.html
+   │ └── signup.html
+   ├── dashboard/
+   │ └── user-dashboard.html
+   └── README.md
 
-## Getting Started
+---
 
-### Prerequisites
+## 🛠️ Tech Stack
 
-Before you begin, ensure you have the following prerequisites:
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Backend**: Node.js, Express.js *(in progress)*
+- **Database**: MongoDB *(in progress)*
+- **Authentication**: bcrypt for password hashing *(planned)*
+- **APIs**: Spotify API, OpenWeather API *(prototype)*
 
-- Web browser (e.g., Chrome, Firefox, Safari)
-- Text editor (e.g., Visual Studio Code, Sublime Text)
+---
 
-### Installation
+## 🌍 Live Demo
+
+🚧 Coming soon via [GitHub Pages](https://vikas-saroj.github.io/CodeVerse/)  
+*(Make sure `index.html` is in root and GitHub Pages is enabled)*
+
+---
+
+## 🧑‍💻 Installation & Setup (for development)
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/keerti-1924/E-Learning-Website-HTML-CSS.git
+   git clone https://github.com/Vikas-saroj/CodeVerse.git
+   cd CodeVerse
+   ```
+2. Open index.html in your browser to view the frontend.
 
-2. Open the project in your preferred text editor.
-3. Launch the `index.html` file in a web browser.
+   (Optional for backend)
+   
+   Install dependencies:
+   ```bash 
+      npm install
+   ```
+   run the server:
+   ```bash
+   node js/server.js
+   ```
 
-## Technologies Used
+---
 
-- HTML
-- CSS
-- Bootstrap 5
-- JavaScript
+## 🗺️ Roadmap
+ Basic HTML/CSS layout
 
-📱 Moreover, I've ensured that the website is fully responsive on all screens, making it accessible and user-friendly across various devices. 📱💡
+ Course content pages
 
-## Contributing 
+ Login/Signup pages
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](/issues).
+ MongoDB integration
 
-## Show your support 
+ Quiz feature
 
-Give a ⭐️ if you like this project!
+ Admin dashboard
 
+ Payment integration (future)
+ 
+---
 
-## License
+## 🤝 Contributing
+Contributions are welcome! Feel free to:
 
-This project is **free to use** and does not contains any license.
+Fork the repo
+
+Create a new branch
+
+Submit a Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
